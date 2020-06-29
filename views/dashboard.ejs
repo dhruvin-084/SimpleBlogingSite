@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+    <title>Dashboard</title>
+</head>
+<body>
+    <%- include ('partials/_navbar') %>
+
+    <div class="container"> 
+        <form action="/admin/logout?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-success">Logout</button>
+        </form>     
+        <table class="table table-hover verticle-center">
+            <tbody>
+                <% articles.forEach(art => { %>
+                    <tr class="table-active ">
+                        <td class="col-4"><%=art.title%></td>
+                        <td class="col-2"><%=art.createdAt.toLocaleDateString()%></td>
+                        <td class="col-2"><a href="/article/<%=art.slug%>" target="_blank" class="btn btn-info btn-lg btn-block">Visit</a></td>
+                        <td class="col-2"><a href="#" target="_blank" class="btn btn-warning btn-lg btn-block">Edit</a></td>
+                        <td class="col-2">
+                            <form action="/admin/delete/<%=art._id%>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

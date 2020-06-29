@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>New Article</title>
+</head>
+<body>
+    <%- include ('partials/_navbar') %>
+    <div class="container">
+        <form action="/admin/newArticle" method="POST">
+            <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" id="title">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" name="description" id="description" rows="1"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="markdown">Mark Down</label>
+                <textarea class="form-control" name="markdown" id="markdown" rows="10"></textarea>
+            </div>
+        
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

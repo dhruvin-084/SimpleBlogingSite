@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Article</title>
+</head>
+<body>
+    <%- include ('partials/_navbar') %>
+
+    <div class="container mt-6">
+        <% articles.forEach(art => { %>
+            <div class="jumbotron py-3">
+                
+                    <h1><%= art.title %></h1>
+                    <p class="text-muted"><%= art.createdAt.toLocaleDateString() %></p>
+                    <p><%= art.markdown %></p>
+                    <a href="/article/<%= art.slug%>" class="btn btn-primary" role="button">read more</a>
+                
+            </div>
+
+        <% }) %>
+    </div>
+</body>
+</html>
